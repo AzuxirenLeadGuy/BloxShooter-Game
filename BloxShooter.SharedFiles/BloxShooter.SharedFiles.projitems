@@ -9,12 +9,22 @@
     <Import_RootNamespace>BloxShooter.SharedFiles</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Game1.cs" />
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Content\" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="$(MSBuildThisFileDirectory)Content\Content.mgcb" />
   </ItemGroup>
- </Project>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)AIController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Gameplay.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameScreen.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)LoadingScreen.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)LogoScreen.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Main.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Menu.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MenuScreen.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Music.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sprites.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Stack.cs" />
+  </ItemGroup>
+</Project>
