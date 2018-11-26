@@ -7,11 +7,11 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="534d69c4-7838-4a37-9103-b47c800e7cba"
+    Name="929c6d0e-514c-4d12-aa10-ff876ed75e23"
     Publisher="CN=Ashish Sam"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="534d69c4-7838-4a37-9103-b47c800e7cba" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="929c6d0e-514c-4d12-aa10-ff876ed75e23" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>BloxShooter.StoreApp</DisplayName>

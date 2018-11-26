@@ -12,7 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-
+using BloxShooter.SharedFiles;
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
 namespace BloxShooter.StoreApp
@@ -22,7 +22,7 @@ namespace BloxShooter.StoreApp
     /// </summary>
     public sealed partial class GamePage : Page
     {
-		readonly Game1 _game;
+		readonly Main _game;
 
 		public GamePage()
         {
@@ -30,7 +30,7 @@ namespace BloxShooter.StoreApp
 
 			// Create the game.
 			var launchArguments = string.Empty;
-            _game = MonoGame.Framework.XamlGame<Game1>.Create(launchArguments, Window.Current.CoreWindow, swapChainPanel);
+            _game = MonoGame.Framework.XamlGame<Main>.Create(launchArguments, Window.Current.CoreWindow, swapChainPanel);
         }
     }
 }
