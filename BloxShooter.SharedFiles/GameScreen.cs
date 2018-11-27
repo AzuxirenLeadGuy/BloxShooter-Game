@@ -15,10 +15,10 @@ namespace BloxShooter.SharedFiles
         byte PlayerCount;
         string ScreenMessage;
         internal Rectangle TextRect;
-        int Timer;
+        int Timer,LockInput;
         public GameScreen(Blox[] pls)
         {
-            Timer=0;
+            Timer=LockInput=0;
             List = null;
             State = GameState.Ready;
             PlayersCopy = pls;
@@ -81,7 +81,7 @@ namespace BloxShooter.SharedFiles
             switch(State)
             {
                 case GameState.Play:
-                    if(!Global.thisgame.IsActive){State=GameState.Pause;ScreenMessage="Paused. Press Select to Resume.";}
+                    if(!Global.thisgame.IsActive){State=GameState.Pause;ScreenMessage="Paused. Press Start to Resume.\nPress Select to Exit";}
                     if(PlayerCount==0)
                     {
                         ScreenMessage=$"Game Over. Team "+(Players[0].c==Color.Red?"Red":"Blue")+" Won \nPress Enter/Start to Restart\nPress Escape/Select to Exit.";
@@ -100,7 +100,14 @@ namespace BloxShooter.SharedFiles
                     }
                 break;
                 case GameState.Pause:
-                if (Global.Gi[Global.DefaultInput].IsButtonDown(Buttons.Back)) { State = GameState.Ready; ScreenMessage = "3"; }
+                    if (LockInput < 2000) { LockInput += gameTime.ElapsedGameTime.Milliseconds; }
+                    else if (Global.Gi[Global.DefaultInput].IsButtonDown(Buttons.Start)) { State = GameState.Ready; ScreenMessage = "3"; }
+                    else if (Global.Gi[Global.DefaultInput].IsButtonDown(Buttons.Back))
+                    {
+                        Global.thisgame.isLoading = true;
+                        MenuScreen.State = MenuScreenState.PressStart;
+                        Global.ScreenLoad(new MenuScreen());
+                    }
                 break;
                 case GameState.GameOver:
                     if (Global.Gi[Global.DefaultInput].IsButtonDown(Buttons.Start)) LoadContent();
@@ -120,7 +127,7 @@ namespace BloxShooter.SharedFiles
             {
                 if (Players[i].Input > 4) { }
                 else { Players[i].HandleInput(); }
-                if (Players[i].keys.Get(4)) { State = GameState.Pause; ScreenMessage = "Paused. Press Select to Resume."; }
+                if (Players[i].keys.Get(4)) { State = GameState.Pause; ScreenMessage = "Paused. Press Start to Resume.\nPress Select to Exit"; LockInput = 0; }
                 //else if (Players[i].keys.Get(5)) { State = GameState.Select; }
                 if (Players[i].Shoot(gt.ElapsedGameTime.Milliseconds))
                 {

@@ -39,7 +39,7 @@ namespace BloxShooter.StoreApp
         //API check to ensure the "RequiresPointerMode" property exists, ensuring project is running on build 14393 or later
         if (Windows.Foundation.Metadata.ApiInformation.IsPropertyPresent("Windows.UI.Xaml.Application", "RequiresPointerMode"))
         {
-            //If running on the Xbox, disable the default on screen pointer
+            //If running on the Xbox, disable the default on screen pointer 
             if (IsXbox())
             {
                 Application.Current.RequiresPointerMode = ApplicationRequiresPointerMode.WhenRequested;
