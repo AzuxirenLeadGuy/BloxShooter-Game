@@ -65,6 +65,7 @@ namespace BloxShooter.SharedFiles
             Health=100;
             Dest=new Rectangle(0,0,Stat,Stat);
         }
+        /// <summary>The Method to execute if Collision is true</summary>
         public static void HandleCollision(ref Blox a,ref Blox b)
         {
             Vector2.Add(ref a.v, ref b.v, out a.v);
@@ -95,6 +96,7 @@ namespace BloxShooter.SharedFiles
                 keys.Set(7,Global.Gi[Input].IsButtonDown(Buttons.RightShoulder));
             }
         }
+        /// <summary>Updates position of the Blox</summary>
         public void UpdatePos()
         {
             a = LeftStick;
@@ -105,6 +107,7 @@ namespace BloxShooter.SharedFiles
             Dest.X = (int)x.X;
             Dest.Y = (int)x.Y;
         }
+        /// <summary>Returns if it is valid to shoot a bullet</summary>
         public bool Shoot(int ms)
         {
             if (ShootLock)

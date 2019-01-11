@@ -11,6 +11,7 @@ namespace BloxShooter.SharedFiles
         void Update(GameTime gt);
         void Draw(GameTime gt);
     }
+    /// <summary>The Common Extension methods and Global variables used</summary>
     public static class Global
     {
         public static Main thisgame;
@@ -34,9 +35,27 @@ namespace BloxShooter.SharedFiles
         }
         ///<summary>Return true on Collision</summary>
         public static bool Collide(this GameObject a, GameObject b) => a.Des.Intersects(b.Des);
+        /// <summary>Draws a part of Texture2D on the Dest rectangle on the Screen </summary>
+        /// <param name="tex">The Texture2D used</param>
+        /// <param name="source">The Rectagle Mapping on the Texture2D/image</param>
+        /// <param name="Dest">The Rectangle on The Screen</param>
+        /// <param name="c">Tint Color[White by default]</param>
         public static void Draw(this Texture2D tex, Rectangle source, Rectangle Dest,Color? c=null) => thisgame.spriteBatch.Draw(tex, source, Dest, c??Color.White);
+        /// <summary>Draws the whole Texture2D on the Screen </summary>        
+        /// <param name="tex">The Texture2D to draw</param>
+        /// <param name="Dest">The Dest rectangle</param>
+        /// <param name="c"></param>
         public static void Draw(this Texture2D tex,Rectangle Dest,Color? c=null) => thisgame.spriteBatch.Draw(tex, Dest, c??Color.White);
+        /// <summary>Draws the whole Texture2D at the given Vector2 on the Screen </summary>        
+        /// <param name="tex">The Texture2D image to Draw</param>
+        /// <param name="Dest">The Destination Rectangle</param>
+        /// <param name="c">Tint Color[White by default]</param>
         public static void Draw(this Texture2D tex, Vector2 Dest, Color? c = null) => thisgame.spriteBatch.Draw(tex, Dest, c ?? Color.White);
+        /// <summary>Writes the text within the rectangle on the Screen </summary>
+        /// <param name="font">The SpriteFont to use</param>
+        /// <param name="Dest">The Rectangle to fit the text</param>
+        /// <param name="Message">The Message to write on the screen</param>
+        /// <param name="c">The Color to use [White By default]</param>
         public static void Write(this SpriteFont font, Rectangle Dest, string Message, Color? c=null)
         {
             Vector2 size = font.MeasureString(Message);

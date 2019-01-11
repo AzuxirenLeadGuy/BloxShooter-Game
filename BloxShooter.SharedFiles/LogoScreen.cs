@@ -33,7 +33,7 @@ namespace BloxShooter.SharedFiles
             timer=0;
             tests[0]=Global.thisgame.Content.Load<Texture2D>("Xifosware");
             tests[1]=Global.thisgame.Content.Load<Texture2D>("MG");
-            tests[2]=Global.thisgame.Content.Load<Texture2D>("GR");
+            tests[2]=Global.thisgame.Content.Load<Texture2D>("GReq");
             dest=new Rectangle[3];
             for(int i=0;i<3;i++)
             {
